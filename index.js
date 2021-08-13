@@ -2,6 +2,7 @@ const express = require('express');
 // Import and require mysql2
 const mysql = require('mysql2');
 require('dotenv').config();
+const prompt = require("./prompt")
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -24,6 +25,7 @@ console.log(`Connected to the courses_db database.`)
 );
 
 
+
 app.use((req, res) => {
     res.status(404).end();
 });
@@ -31,3 +33,7 @@ app.use((req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+prompt();
+
+module.exports = db;
